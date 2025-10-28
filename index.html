@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dr.Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Dr.Chat</h1>
+      <p class="disclaimer">I am not a doctor. For emergencies call your local number.</p>
+    </header>
+    <main id="chat">
+      <ul id="messages"></ul>
+    </main>
+
+    <!-- Composer: mic button + input + send + TTS toggle -->
+    <form id="composer" autocomplete="off">
+      <button type="button" id="micBtn" title="Start voice input" aria-label="Voice input">🎤</button>
+      <input id="input" placeholder="Ask about symptoms or meds..." required>
+      <button type="submit">Send</button>
+      <label style="margin-left:8px; font-size:0.9rem;">
+        <input type="checkbox" id="tts"> Speak replies
+      </label>
+    </form>
+
+    <footer>
+      <label><input type="checkbox" id="ack"> I understand this is informational only</label>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

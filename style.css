@@ -1,0 +1,156 @@
+/* ===== BODY & PAGE STYLING ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Full-page background image */
+  background: url('img.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* ===== CHAT CONTAINER ===== */
+.app {
+  width: 1000px;
+  max-width: 95%;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+
+  /* Fully visible background image inside chat */
+  background: url('img.jpg') no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Glassmorphism effect */
+  backdrop-filter: blur(5px);
+}
+
+/* ===== HEADER ===== */
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #000000;
+  font-style: italic;
+}
+
+.disclaimer {
+  color: #000000;
+  margin: 6px 0 12px;
+  font-style: italic;
+}
+
+/* ===== CHAT AREA ===== */
+#chat {
+  height: 420px;
+  overflow: auto;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.3); /* semi-transparent to show image */
+  margin-bottom: 12px;
+  backdrop-filter: blur(3px);
+}
+
+#messages {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.message {
+  max-width: 78%;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #000;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: rgba(199, 195, 195, 0.6);
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background: rgba(245, 244, 244, 0.889);
+}
+
+/* ===== INPUT & COMPOSER ===== */
+#composer {
+  display: flex;
+  gap: 8px;
+}
+
+#composer input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.3);
+  color: #000;
+}
+
+#composer button {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(128,125,125,0.5);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#composer button:hover {
+  background: rgba(128,125,125,0.8);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 8px;
+  color: #161111;
+  font-size: 0.9rem;
+}
+
+footer label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #080707;
+}
+
+#tts {
+  transform: scale(1.2);
+  accent-color: #6f6d6d;
+}
+
+/* ===== MIC BUTTON ===== */
+#micBtn {
+  background-color: #cc1c0f;
+  color: rgb(0,0,0);
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#micBtn:hover {
+  background-color: #575454;
+}
+
+#micBtn:disabled {
+  background-color: #ca1515;
+  cursor: not-allowed;
+}
