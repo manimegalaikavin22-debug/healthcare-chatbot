@@ -25,15 +25,26 @@ if (SpeechRecognition) {
   recognition.lang = "en-IN";
   recognition.interimResults = false;
 
-  recognition.onstart = () => { isRecognizing = true; micBtn.textContent = "⏹"; };
+  recognition.onstart = () => { 
+    isRecognizing = true; 
+    micBtn.textContent = "⏹"; 
+  };
   recognition.onend = () => { 
-    isRecognizing = false; micBtn.textContent = "🎤";
+    isRecognizing = false; 
+    micBtn.textContent = "🎤";
     if (input.value.trim()) sendMessage(input.value.trim()); 
   };
-  recognition.onresult = (event) => { input.value = event.results[0][0].transcript; };
-} else { micBtn.disabled = true; }
+  recognition.onresult = (event) => { 
+    input.value = event.results[0][0].transcript; 
+  };
+} else { 
+  micBtn.disabled = true; 
+}
 
-micBtn.addEventListener("click", () => { if (!recognition) return; isRecognizing ? recognition.stop() : recognition.start(); });
+micBtn.addEventListener("click", () => { 
+  if (!recognition) return; 
+  isRecognizing ? recognition.stop() : recognition.start(); 
+});
 
 function speak(text) {
   if (!ttsCheckbox.checked) return;
@@ -55,11 +66,13 @@ async function sendMessage(text) {
   messages.appendChild(loading);
 
   try {
-    const res = await fetch("/api/chat", {
+    // ✅ Updated line to connect with your Render backend
+    const res = await fetch("https://healthcare-chatbot.onrender.com/api/chat", {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: text }),
     });
+
     const data = await res.json();
     messages.removeChild(loading);
     appendMessage("assistant", data.reply);
@@ -77,4 +90,3 @@ form.addEventListener("submit", (e) => {
   if (!input.value.trim()) return;
   sendMessage(input.value.trim());
 });
-
